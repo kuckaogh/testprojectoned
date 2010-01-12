@@ -27,7 +27,7 @@
 
 // includes, project
 #include <cutil_inline.h>
-#include <shrUtils.h>
+//#include <shrUtils.h>
 // includes, kernels
 #include <cppIntegration_kernel.cu>
 //
@@ -47,7 +47,7 @@ computeGold2(int2* reference, int2* idata, const unsigned int len);
 //! @param len   len of \a data
 ////////////////////////////////////////////////////////////////////////////////
 extern "C" void
-runTest(const int argc, const char** argv, char* data, int2* data_int2, unsigned int len)
+runTest(const int argc, const char** argv, char* data, int2* data_int2, unsigned int len, float* h_C)
 {
 
     // use command-line specified CUDA device, otherwise use device with highest Gflops/s
@@ -115,23 +115,32 @@ runTest(const int argc, const char** argv, char* data, int2* data_int2, unsigned
     free(reference);
     free(reference2);
 
-	int N=100
-    size_t size = N * sizeof(float);
+	int N=10;
+    size_t  size = N * sizeof(float);
 	float* d_A;
 	cudaMalloc((void**)&d_A, size);
 	float* d_B;
 	cudaMalloc((void**)&d_B, size);
 	float* d_C;
 	cudaMalloc((void**)&d_C, size);
+    float h_A_v =3.0;
+	float h_B_v =4.0;
+	//float h_C_v =0;
+
+	float* h_A;
+	float* h_B;
+//	float* h_C;
+	h_A = &h_A_v;
+	h_B = &h_B_v;
+	//h_C = &h_C_v;
 
 	cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
 	cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
 
 	// Invoke kernel
 	int threadsPerBlock = 256;
-	int blocksPerGrid =
-	(N + threadsPerBlock – 1) / threadsPerBlock;
-	VecAdd<<<1, N>>>(d_A, d_B, d_C);
+//	int blocksPerGrid =	(N + threadsPerBlock – 1) / threadsPerBlock;
+	simpleAdd<<<1, N>>>(d_A, d_B, d_C);
 	// Copy result from device memory to host memory
 	// h_C contains the result in host memory
 	cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
