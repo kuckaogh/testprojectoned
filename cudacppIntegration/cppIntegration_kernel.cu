@@ -68,4 +68,11 @@ kernel2( int2* g_data )
     g_data[tid].x = data.x - data.y;
 }
 
+__global__ void
+simpleAdd( float* A, float* B, float* C )
+{
+	int i = threadIdx.x;
+		C[i]=A[i]+B[i];
+}
+
 #endif // #ifndef _CPP_INTEGRATION_KERNEL_H_

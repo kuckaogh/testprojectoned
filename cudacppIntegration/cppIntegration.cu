@@ -27,7 +27,7 @@
 
 // includes, project
 #include <cutil_inline.h>
-
+#include <shrUtils.h>
 // includes, kernels
 #include <cppIntegration_kernel.cu>
 //
@@ -82,6 +82,7 @@ runTest(const int argc, const char** argv, char* data, int2* data_int2, unsigned
     kernel<<< grid, threads >>>((int*) d_data);
     kernel2<<< grid, threads2 >>>(d_data_int2);
 
+
     // check if kernel execution generated and error
     cutilCheckMsg("Kernel execution failed");
 
@@ -113,6 +114,31 @@ runTest(const int argc, const char** argv, char* data, int2* data_int2, unsigned
     cutilSafeCall(cudaFree(d_data_int2));
     free(reference);
     free(reference2);
+
+	int N=100
+    size_t size = N * sizeof(float);
+	float* d_A;
+	cudaMalloc((void**)&d_A, size);
+	float* d_B;
+	cudaMalloc((void**)&d_B, size);
+	float* d_C;
+	cudaMalloc((void**)&d_C, size);
+
+	cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
+	cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
+
+	// Invoke kernel
+	int threadsPerBlock = 256;
+	int blocksPerGrid =
+	(N + threadsPerBlock – 1) / threadsPerBlock;
+	VecAdd<<<1, N>>>(d_A, d_B, d_C);
+	// Copy result from device memory to host memory
+	// h_C contains the result in host memory
+	cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+	// Free device memory
+	cudaFree(d_A);
+	cudaFree(d_B);
+	cudaFree(d_C);
 
     cudaThreadExit();
 }
