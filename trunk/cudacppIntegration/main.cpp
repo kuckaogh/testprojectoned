@@ -30,7 +30,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // declaration, forward
 extern "C" void runTest(const int argc, const char** argv, 
-                        char* data, int2* data_int2, unsigned int len);
+                        char* data, int2* data_int2, unsigned int len, float* h_C);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Program main
@@ -55,9 +55,12 @@ main(int argc, char** argv)
         i2[i].x = str[i];
         i2[i].y = 10;
     }
-
+	float hh_C_v =785.0;
+	float*  hh_C=&hh_C_v;
+	
     // run the device part of the program
-    runTest(argc, (const char**)argv, str, i2, len);
+    runTest(argc, (const char**)argv, str, i2, len, hh_C);
+
 
     std::cout << str << std::endl;
     for( int i = 0; i < len; i++ )
