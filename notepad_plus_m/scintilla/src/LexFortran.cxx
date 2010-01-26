@@ -280,7 +280,7 @@ static int classifyFoldPointFortran(const char* s, const char* prevWord, const c
 	    || strcmp(s, "do") == 0 || strcmp(s, "enum") ==0
 	    || strcmp(s, "function") == 0 || strcmp(s, "interface") == 0
 		|| strcmp(s, "module") == 0 || strcmp(s, "program") == 0
-		|| strcmp(s, "subroutine") == 0 || strcmp(s, "then") == 0 || strcmp(s, ")then") == 0
+		|| strcmp(s, "subroutine") == 0 || strcmp(s, "then") == 0 
 		|| (strcmp(s, "type") == 0 && chNextNonBlank != '(') ){
 			if (strcmp(prevWord, "end") == 0)
 				lev = 0;
@@ -368,7 +368,7 @@ static void FoldFortranDoc(unsigned int startPos, int length, int initStyle,
                             if ( strcmp(smore,"then") == 0 ){ 
                                 //strcpy(s,"then");
                                 //lastStart = lastStart+k+6;
-                                levelCurrent +=1;
+                                levelCurrent++;
                             }
                         }                
                     }
