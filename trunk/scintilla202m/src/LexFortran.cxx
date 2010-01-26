@@ -226,21 +226,25 @@ static void ColouriseFortranDoc(unsigned int startPos, int length, int initStyle
 					sc.Forward();
 					if (tolower(sc.chNext) == 't') {
 			            sc.SetState(SCE_F_OPERATOR2);
+                        sc.Backward();
 					}
 				}else if (tolower(sc.chNext) == 'l' ) {
 					sc.Forward();
 					if (tolower(sc.chNext) == 't') {
 			            sc.SetState(SCE_F_OPERATOR2);
+						sc.Backward();
 					}
 				}else if (tolower(sc.chNext) == 'n' ) {
 					sc.Forward();
 					if (tolower(sc.chNext) == 'e') {
 			            sc.SetState(SCE_F_OPERATOR2);
+						sc.Backward();
 					}
 				}else if (tolower(sc.chNext) == 'e' ) {
 					sc.Forward();
 					if (tolower(sc.chNext) == 'q') {
 			            sc.SetState(SCE_F_OPERATOR2);
+						sc.Backward();
 					}
 				}
 			}
