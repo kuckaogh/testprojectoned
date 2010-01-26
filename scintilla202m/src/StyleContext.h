@@ -30,6 +30,12 @@ class StyleContext {
 					(ch == '\n') ||
 					(currentPos >= endPos);
 	}
+	void GetPrevChar(unsigned int pos) {
+		chPrev = static_cast<unsigned char>(styler.SafeGetCharAt(pos-1));
+		if (styler.IsLeadByte(static_cast<char>(chPrev))) {
+			chPrev = chPrev << 8;
+			chPrev |= static_cast<unsigned char>(styler.SafeGetCharAt(pos-2));
+		}}
 
 public:
 	unsigned int currentPos;
@@ -89,6 +95,14 @@ public:
 		for (int i = 0; i < nb; i++) {
 			Forward();
 		}
+	}
+	void Backward() {
+		if (currentPos < endPos) {			
+            chNext = ch;
+		    ch = chPrev;
+			currentPos--;
+			GetPrevChar(currentPos + ((ch >= 0x100) ? 1 : 0));
+		} 
 	}
 	void ChangeState(int state_) {
 		state = state_;
