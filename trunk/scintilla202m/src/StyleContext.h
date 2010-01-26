@@ -104,6 +104,11 @@ public:
 			GetPrevChar(currentPos + ((ch >= 0x100) ? 1 : 0));
 		} 
 	}
+	void Backward(int nb) {
+		for (int i = 0; i < nb; i++) {
+			Backward();
+		}
+	}
 	void ChangeState(int state_) {
 		state = state_;
 	}
