@@ -227,23 +227,28 @@ static void ColouriseFortranDoc(unsigned int startPos, int length, int initStyle
 					if (tolower(sc.chNext) == 't') {
 						sc.Backward();
 						sc.SetState(SCE_F_OPERATOR2);
+                        sc.Forward();
 					}
 				}else if (tolower(sc.chNext) == 'l' ) {
 					sc.Forward();
 					if (tolower(sc.chNext) == 't') {
 						sc.Backward();
 						sc.SetState(SCE_F_OPERATOR2);
+                        sc.Forward();
 					}
 				}else if (tolower(sc.chNext) == 'n' ) {
 					sc.Forward();
 					if (tolower(sc.chNext) == 'e') {
 						sc.Backward();
 						sc.SetState(SCE_F_OPERATOR2);
+                        sc.Forward();
+
 					}else if (tolower(sc.chNext) == 'o') {
 						sc.Forward();
 					    if (tolower(sc.chNext) == 't') {
 						    sc.Backward(2);
 						    sc.SetState(SCE_F_OPERATOR2);
+                            sc.Forward(2);
 					    }
 					}
 				}else if (tolower(sc.chNext) == 'e' ) {
@@ -251,6 +256,17 @@ static void ColouriseFortranDoc(unsigned int startPos, int length, int initStyle
 					if (tolower(sc.chNext) == 'q') {
 						sc.Backward();
 						sc.SetState(SCE_F_OPERATOR2);
+                        sc.Forward();
+					}
+				}else if (tolower(sc.chNext) == 'a' ) {
+					sc.Forward();
+					if (tolower(sc.chNext) == 'n') {
+						sc.Forward();
+					    if (tolower(sc.chNext) == 'd') {
+						    sc.Backward(2);
+						    sc.SetState(SCE_F_OPERATOR2);
+                            sc.Forward(2);
+					    }
 					}
 				}
 			}
