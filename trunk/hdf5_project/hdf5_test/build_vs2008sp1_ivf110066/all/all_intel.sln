@@ -3,13 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "qual_hdf5", "..\qual_hdf5\qual_hdf5.vfproj", "{9F3C728A-E36D-4E57-9C61-E1642E781B3E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hdf5_c", "..\hdf5_c\hdf5_c.vcproj", "{774F5B2D-2985-4D60-B8E7-2CFA9059A0C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9F3C728A-E36D-4E57-9C61-E1642E781B3E}.Debug|Win32.ActiveCfg = Debug|Win32
 		{9F3C728A-E36D-4E57-9C61-E1642E781B3E}.Debug|Win32.Build.0 = Debug|Win32
+		{9F3C728A-E36D-4E57-9C61-E1642E781B3E}.Release|Win32.ActiveCfg = Release|Win32
+		{9F3C728A-E36D-4E57-9C61-E1642E781B3E}.Release|Win32.Build.0 = Release|Win32
+		{774F5B2D-2985-4D60-B8E7-2CFA9059A0C6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{774F5B2D-2985-4D60-B8E7-2CFA9059A0C6}.Debug|Win32.Build.0 = Debug|Win32
+		{774F5B2D-2985-4D60-B8E7-2CFA9059A0C6}.Release|Win32.ActiveCfg = Release|Win32
+		{774F5B2D-2985-4D60-B8E7-2CFA9059A0C6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

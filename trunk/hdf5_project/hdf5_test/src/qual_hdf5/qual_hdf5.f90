@@ -1,7 +1,8 @@
-      program qual_hdf5file
+     program qual_hdf5file
       
-      call test1
-      end
+     call test1
+     end
+     
      subroutine test1
 
      use HDF5 ! module of HDF5 library
@@ -25,14 +26,15 @@
      ! Create a new file using default properties.
      ! 
      CALL h5fcreate_f(filename, H5F_ACC_TRUNC_F, file_id, error)
-     
+
+     CALL h5gcreate_f(file_id, group_name, group_id, error)     
      
      rank = 1
      dims(1) = 2
      buf(1) = 1
      buf(2) = 2
 
-     CALL h5gcreate_f(file_id, group_name, group_id, error)
+
      
      CALL h5screate_simple_f(rank, dims, dataspace_id, error)
      call h5dcreate_f(group_id, dataset_name, H5T_NATIVE_REAL, dataspace_id, dataset_id, error) 
