@@ -1,18 +1,18 @@
+#include <stdio.h>
 #include "hdf5.h"
 #include "hdf5_hl.h"
-
 #define RANK 2
-int testhdf();
+extern "C" void c_routine (
+                        int int_arg,
+                        char* input_text,
+                        char* output_text
+                        )
 
-int main( void )
 {
-int errorCode;
-	
-errorCode = testhdf();
+    sprintf(output_text,"%s%i ",input_text,int_arg);
 }
 
-
-int testhdf()
+extern "C" void testhdf()
 {
  hid_t       file_id;
  hsize_t     dims[RANK]={2,3};
@@ -28,6 +28,5 @@ int testhdf()
  /* close file */
  status = H5Fclose (file_id);
 
- return 0;
+ //return 0;
 }
-

@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "qual_hdf5", "..\qual_hdf5\qual_hdf5.vfproj", "{9F3C728A-E36D-4E57-9C61-E1642E781B3E}"
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "hdf5_f", "..\qual_hdf5\hdf5_f.vfproj", "{9F3C728A-E36D-4E57-9C61-E1642E781B3E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hdf5_c", "..\hdf5_c\hdf5_c.vcproj", "{774F5B2D-2985-4D60-B8E7-2CFA9059A0C6}"
+EndProject
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "main", "..\main\main.vfproj", "{23A01280-7B41-459E-BC08-3FF0DA91B50C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C979EAE3-E1A3-4121-BDCF-55F136A16B08} = {C979EAE3-E1A3-4121-BDCF-55F136A16B08}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hdf5_c_lib", "..\hdf5_c_lib\hdf5_c_lib.vcproj", "{C979EAE3-E1A3-4121-BDCF-55F136A16B08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +26,14 @@ Global
 		{774F5B2D-2985-4D60-B8E7-2CFA9059A0C6}.Debug|Win32.Build.0 = Debug|Win32
 		{774F5B2D-2985-4D60-B8E7-2CFA9059A0C6}.Release|Win32.ActiveCfg = Release|Win32
 		{774F5B2D-2985-4D60-B8E7-2CFA9059A0C6}.Release|Win32.Build.0 = Release|Win32
+		{23A01280-7B41-459E-BC08-3FF0DA91B50C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{23A01280-7B41-459E-BC08-3FF0DA91B50C}.Debug|Win32.Build.0 = Debug|Win32
+		{23A01280-7B41-459E-BC08-3FF0DA91B50C}.Release|Win32.ActiveCfg = Release|Win32
+		{23A01280-7B41-459E-BC08-3FF0DA91B50C}.Release|Win32.Build.0 = Release|Win32
+		{C979EAE3-E1A3-4121-BDCF-55F136A16B08}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C979EAE3-E1A3-4121-BDCF-55F136A16B08}.Debug|Win32.Build.0 = Debug|Win32
+		{C979EAE3-E1A3-4121-BDCF-55F136A16B08}.Release|Win32.ActiveCfg = Release|Win32
+		{C979EAE3-E1A3-4121-BDCF-55F136A16B08}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
