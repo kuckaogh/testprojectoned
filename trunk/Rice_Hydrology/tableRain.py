@@ -11,12 +11,12 @@ rainfall_File = open('rainfall.txt','r')
 
 lines = rainfall_File.readlines()
 
-title =lines[0].split()
+title =lines[1].split()
 DU.append(title[1+1])
 
-n_lines = len(lines[1:])
+n_lines = len(lines[2:])
 
-for line in lines[1:]:
+for line in lines[2:]:
     line=line.strip().split()
     try:
         year = int(line[0])
@@ -47,4 +47,4 @@ for line in lines[1:]:
 
 
 
-print Rain[1954-START_YEAR+1][6]
+#print Rain[1954-START_YEAR+1][6]

@@ -1,3 +1,4 @@
+Lookup table for operations
 Month   Growing_Season     Ponded_Ops   
  1        0                    1               
  2        0                    0.5                 

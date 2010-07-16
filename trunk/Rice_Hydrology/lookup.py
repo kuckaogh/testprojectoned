@@ -5,7 +5,7 @@ NonGrow=['NA']
 lookup_flags_file = open('lookup.txt', 'r')
 
 lines = lookup_flags_file.readlines()
-for i,line in enumerate (lines[1:]):  #skip comment 
+for i,line in enumerate (lines[2:]):  #skip title and comment 
     line = line.strip().split()
     #print line
     #line = line.strip()
