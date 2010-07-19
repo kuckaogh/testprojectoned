@@ -12,7 +12,7 @@ Pond = zeros(12)
 NonPond = zeros(12)
 Grow = zeros(12)
 Burn = zeros_2D(85,12)
-Sum = zeros_2D(85,12)
+#Sum = zeros_2D(85,12)
 
 #print tableET.Burn[1:12]
 #print lookup.NonGrow[1:12]
@@ -38,3 +38,10 @@ def find():
             for mon in range(1, 12+1): # 1 to 12
                 Burn[iyr][mon] = lookup.NonGrow[mon] * tableET.Burn[mon] * area.Burn[DU_id]
 
+def record(outFile):
+    
+    for calendar_year in range(1922, 2006):
+        iyr = calendar_year-tableRain.START_YEAR+1
+        for mon in range(1,13):
+            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Grow[mon])+'  '+ str(Pond[mon])+'  '+ str(NonPond[mon])+'  '+ str(Burn[iyr][mon])+'\n' )
+            
