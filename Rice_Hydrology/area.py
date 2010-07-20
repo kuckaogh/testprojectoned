@@ -20,19 +20,19 @@ for i,line in enumerate (lines[1:]):  #skip comment
     try:
         DU.append(line[0])
         
-        total = float(line[1])
+        _total = float(line[1])
         pr = float(line[2])/100
         npr = float(line[3])/100
         br  = 1.0 - pr - npr
         
-        Total.append(total)
+        Total.append(_total)
         
         Pond_Ratio.append(pr)
-        Pond.append( total * pr )
+        Pond.append( _total * pr )
         NonPond_Ratio.append(npr)
-        NonPond.append( total * npr )
+        NonPond.append( _total * npr )
         Burn_Ratio.append( br )
-        Burn.append( total * br)
+        Burn.append( _total * br)
     except:
         print "Error!"
     

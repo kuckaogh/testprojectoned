@@ -2,7 +2,7 @@
 
 
 import area, lookup, tableRain, tableET   # user input
-import ETr, AWr              
+import ETr, OW             
 #from numpy import *   # bug in ironclad
 from functions import *
 from constants import *
@@ -20,8 +20,7 @@ NonPond = zeros_2D(85,12)
 #print lookup.NonGrow[1:12]
 #print area.Burn[75]
 
-ETr.find()
-AWr.find()
+
 
 
 
@@ -35,14 +34,14 @@ for DU_id in (75,75):
     for calendar_year in range(1922, 2006):
         iyr = calendar_year-tableRain.START_YEAR+1
         for mon in range(1, 12+1): # 1 to 12
-            NonPond[iyr][mon] = min( (tableRain.Vol_NonPond[iyr][mon] + AWr.NonPond[mon]), ETr.NonPond[mon] )
+            NonPond[iyr][mon] = min( (tableRain.Vol_NonPond[iyr][mon] + OW.NonPond[mon]), ETr.NonPond[mon] )
 
 def record(outFile):
     
     for calendar_year in range(1922, 2006):
         iyr = calendar_year-tableRain.START_YEAR+1
         for mon in range(1,13):
-            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(NonPond[iyr][mon])+' '+str(AWr.NonPond[mon]) +'\n' )
+            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(NonPond[iyr][mon])+' '+str(OW.NonPond[mon]) +'\n' )
             
 
 record(open('test.out','w'))
