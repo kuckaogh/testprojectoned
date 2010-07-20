@@ -27,8 +27,8 @@ AWr.find()
 #print LP.Grow
 
 RR.find()
-print RR.NonPond[iyr]
-
+#print RR.NonPond[iyr]
+print tableRain.VolNonPond[iyr]
 
 LP.record(LP_File)
 DP.record(DP_File)
