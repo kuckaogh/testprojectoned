@@ -1,3 +1,4 @@
+import area, lookup
 from functions import *
 
 START_YEAR = 1921
@@ -6,6 +7,7 @@ UNIT = 'ft'
 DU = ['NA']
 
 Rain = zeros_2D(100,12)
+VolNonPond = zeros_2D(100,12)
 
 rainfall_File = open('rainfall.txt','r')
 
@@ -24,6 +26,10 @@ for line in lines[2:]:
         iyr = year - START_YEAR + 1
         #print year, month, iyr
         Rain[iyr][month] = float(line[2])
+        
+        for DU_id in (75,75):
+            VolNonPond[iyr][month] = lookup.NonGrow[month]*area.NonPond[DU_id]*Rain[iyr][month]
+            
     except:
         print 'error!'
 
