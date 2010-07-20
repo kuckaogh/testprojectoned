@@ -7,7 +7,8 @@ UNIT = 'ft'
 DU = ['NA']
 
 Rain = zeros_2D(100,12)
-VolNonPond = zeros_2D(100,12)
+Vol_NonPond = zeros_2D(100,12)
+Vol_Grow = zeros_2D(100,12)
 
 rainfall_File = open('rainfall.txt','r')
 
@@ -28,8 +29,8 @@ for line in lines[2:]:
         Rain[iyr][month] = float(line[2])
         
         for DU_id in (75,75):
-            VolNonPond[iyr][month] = lookup.NonGrow[month]*area.NonPond[DU_id]*Rain[iyr][month]
-            
+            Vol_NonPond[iyr][month] = lookup.NonGrow[month]*area.NonPond[DU_id]*Rain[iyr][month]
+            Vol_Grow[iyr][month]    = lookup.Grow[month]*area.Total[DU_id]*Rain[iyr][month]
     except:
         print 'error!'
 
