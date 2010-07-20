@@ -1,6 +1,9 @@
+#lookup table for operations and re-use water ratio
+
 Grow=['NA']
 Pond = ['NA'] 
 NonGrow=['NA']
+Reuse_Runoff =['NA']
 
 lookup_flags_file = open('lookup.txt', 'r')
 
@@ -13,5 +16,7 @@ for i,line in enumerate (lines[2:]):  #skip title and comment
         Grow.append(float(line[1]))
         NonGrow.append(1.0-float(line[1]))
         Pond.append(float(line[2])) 
+        Reuse_Runoff.append(float(line[3])) 
+        
     except:
         print "error in lookup.py!"

@@ -15,9 +15,7 @@ Grow = zeros(12)
 Burn = zeros_2D(85,12)
 Sum = zeros_2D(85,12)
 
-ETr.find()
-DP.find()
-LP.find()
+
 # non-Sept
 #mon=6
 DU_id = 75
@@ -42,10 +40,10 @@ def find():
             iyr = calendar_year-tableRain.START_YEAR+1
             for mon in range(1, 12+1): # 1 to 12
                 if (mon != 2):
-                    Pond[iyr][mon] = ETr.Pond[mon] + (tableAW.Decomp_FlowT[mon] + tableAW.Pond[mon]- lookup.Pond[mon]*tableRain.Rain[iyr][mon]*0.1)*area.Pond[DU_id] + DP.Pond[mon] + LP.Pond[mon] 
+                    Pond[iyr][mon] = ETr.Pond_Op[mon] + (tableAW.Decomp_FlowT[mon] + tableAW.Pond[mon]- lookup.Pond[mon]*tableRain.Rain[iyr][mon]*0.1)*area.Pond[DU_id] + DP.Pond[mon] + LP.Pond[mon] 
                     Pond[iyr][mon] = max(0,Pond[iyr][mon])
                 else:
-                    Pond[iyr][mon] = ETr.Pond[mon] + (tableAW.Decomp_FlowT[mon] + tableAW.Pond[mon]- lookup.Pond[mon]*tableRain.Rain[iyr][mon]*0.1)*area.Pond[DU_id]
+                    Pond[iyr][mon] = ETr.Pond_Op[mon] + (tableAW.Decomp_FlowT[mon] + tableAW.Pond[mon]- lookup.Pond[mon]*tableRain.Rain[iyr][mon]*0.1)*area.Pond[DU_id]
                     Pond[iyr][mon] = max(0,Pond[iyr][mon])
                     
                     
@@ -57,3 +55,5 @@ def record(outFile):
         for mon in range(1,13):
             outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Grow[mon])+'  '+ str(Pond[iyr][mon])+'  '+ str(NonPond[mon])+'\n' )
             
+
+find()

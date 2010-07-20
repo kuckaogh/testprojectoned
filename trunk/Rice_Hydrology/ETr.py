@@ -8,7 +8,8 @@ from constants import *
 #ETr_out = open('out', 'w')
 
 #def ETr_initialize(85)
-Pond = zeros(12)
+Pond_Op = zeros(12)
+Pond_NonOp = zeros(12)
 NonPond = zeros(12)
 Grow = zeros(12)
 Burn = zeros_2D(85,12)
@@ -26,8 +27,11 @@ def find():
     
             Grow[mon] = lookup.Grow[mon] * tableET.Grow[mon] * area.Total[DU_id]
             
-            Pond[mon] = lookup.Pond[mon] * tableET.Pond[mon] * area.Pond[DU_id] - Grow[mon]*area.Pond_Ratio[mon]
-            Pond[mon] = max(0,Pond[mon])
+            Pond_Op[mon] = lookup.Pond[mon] * tableET.Pond[mon] * area.Pond[DU_id] - Grow[mon]*area.Pond_Ratio[DU_id]
+            Pond_Op[mon] = max(0,Pond_Op[mon])
+
+            Pond_NonOp[mon] = (1.0-lookup.Pond[mon]) * tableET.Pond[mon] * area.Pond[DU_id] - Grow[mon]*area.Pond_Ratio[DU_id]
+            Pond_NonOp[mon] = max(0,Pond_NonOp[mon])
             
             NonPond[mon] = tableET.NonPond[mon] * area.NonPond[DU_id] - Grow[mon]*area.NonPond_Ratio[mon]
             NonPond[mon] = max(0,NonPond[mon])
@@ -43,5 +47,11 @@ def record(outFile):
     for calendar_year in range(1922, 2006):
         iyr = calendar_year-tableRain.START_YEAR+1
         for mon in range(1,13):
-            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Grow[mon])+'  '+ str(Pond[mon])+'  '+ str(NonPond[mon])+'  '+ str(Burn[iyr][mon])+'\n' )
+            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Grow[mon])+'  '+ str(Pond_Op[mon])+'  '+ str(NonPond[mon])+'  '+ str(Burn[iyr][mon])+'\n' )
             
+
+find()
+
+#mon=7
+#DU_id=75
+#print Grow[mon]*area.Pond_Ratio[mon], tableET.Pond[mon] * area.Pond[DU_id]
