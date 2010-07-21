@@ -42,24 +42,3 @@ for line in _lines[2:]:
     except:
         print 'error!'
 
-#i=1
-#for iyr in range(1,3):
-#    for mon in range(1,13):
-#        line = _lines[i].split()      
-#        if len(line[1]) > 0:
-#            Rain_WaterMonth[iyr][mon] = float(line[2])
-#        i=i+1  
-        
-         
-
-#    #print line
-#    #line = line.strip()
-#    for mon in range(1,13):
-#        
-#        if len(line[1]) > 0:
-#            Rainfall.append(float(line[2]))
-#
-
-
-
-#print Rain[1954-START_YEAR+1][6]

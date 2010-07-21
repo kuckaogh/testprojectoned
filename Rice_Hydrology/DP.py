@@ -1,11 +1,9 @@
-import os #os.getcwd()
+
 import area, lookup, tableRain    # user input
-#import DP              # output
 #from numpy import *   # bug in ironclad
 from functions import *
 from constants import *
 
-#outFile = open('DP_out', 'w')
 
 Pond = zeros(12)
 NonPond = zeros(12)
