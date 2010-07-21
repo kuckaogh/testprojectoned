@@ -18,34 +18,31 @@ Sum = zeros_2D(85,12)
 #Burn = zeros_2D(85,12)
 #Sum = zeros_2D(85,12)
 
-def find():
+def find(DU_id):
 
-    for DU_id in (75,75):
        # for Grow
         for mon in range(1, 12+1): # 1 to 12                      
-            if (mon>4 and mon<9):
+            if mon in(5,6,7,8):
                 WaterPonded_Grow[mon] = WaterPonded_Grow[mon-1] + AWr.Grow[mon] - DP.Grow[mon] -LP.Grow[mon]- tableAW.Grow_FlowT[mon]*area.Total[DU_id] - ETr.Grow[mon]
-            else:
-                WaterPonded_Grow[mon] = 0         
+       
         for mon in range(1, 12+1): # 1 to 12
+            Grow[mon] = LP.Grow[mon] +tableAW.Grow_FlowT[mon]*area.Total[DU_id]
             if (mon == 9 ):
                 Grow[mon] = WaterPonded_Grow[mon-1] + tableAW.Grow_FlowT[mon]*area.Total[DU_id] - DP.Grow[mon]
-                Grow[mon] = max( 0, Grow[mon] )
-            else:
-                Grow[mon] = LP.Grow[mon] +tableAW.Grow_FlowT[mon]*area.Total[DU_id]
+                Grow[mon] = max(0,Grow[mon])
+                
  
-       # for Ponded
-        for mon in range(1, 12+1): # 1 to 12                      
-            if (mon == 1):
-                WaterPonded_Pond[mon] = WaterPonded_Pond[12] + OW.Pond[mon]            
-            elif (mon<4 or mon>9):
-                WaterPonded_Pond[mon] = WaterPonded_Pond[mon-1] + OW.Pond[mon]
-            else:
-                WaterPonded_Pond[mon] = 0    
-        for mon in range(1, 12+1): # 1 to 12
-            if (mon != 2 ):               
-                Pond[mon] = LP.Pond[mon] + tableAW.Decomp_FlowT[mon]*area.Pond[DU_id]
-            else:
+        # for Ponded
+        for mon in (10,11,12): 
+            WaterPonded_Pond[mon] = WaterPonded_Pond[mon-1] + OW.Pond[mon]
+            
+        WaterPonded_Pond[1] = WaterPonded_Pond[12] + OW.Pond[1]      
+        for mon in (2,3): 
+            WaterPonded_Pond[mon] = WaterPonded_Pond[mon-1] + OW.Pond[mon]    
+  
+        for mon in range(1, 12+1): # 1 to               
+            Pond[mon] = LP.Pond[mon] + tableAW.Decomp_FlowT[mon]*area.Pond[DU_id]
+            if ( mon == 2 ):
                 Pond[mon] = WaterPonded_Pond[mon-1] + tableAW.Decomp_FlowT[mon]*area.Pond[DU_id] - DP.Pond[mon]
                 Pond[mon] = max( 0, Pond[mon] ) 
                 
@@ -56,9 +53,7 @@ def find():
 
                 NonPond[iyr][mon] = LP.NonPond[iyr][mon]
                 Sum[iyr][mon]     = (1.0 - lookup.Reuse_Return[mon] ) *( Grow[mon]+Pond[mon]+NonPond[iyr][mon] )
-                #Burn[iyr][mon] = lookup.NonGrow[mon] * min(tableRain.Rain[iyr][mon],LP_RATE)* area.Burn[DU_id]
-                #Sum[iyr][mon] = Pond[mon] + NonPond[iyr][mon] + Grow[mon]
-                #Sum[iyr][mon] = (1.0-lookup.Reuse_Return[mon])*Sum[iyr][mon]
+
                 
 def record(outFile):
     
@@ -68,6 +63,6 @@ def record(outFile):
             outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Sum[iyr][mon])+'\n' )
 
 
-find()
+find(75)
 
 

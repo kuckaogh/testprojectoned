@@ -1,7 +1,7 @@
 import area, lookup
 from functions import *
+from constants import *
 
-START_YEAR = 1921
 UNIT = 'ft'
 
 DU = ['NA']

@@ -17,10 +17,13 @@ AWT_File = open('AWT_out.out','w')
 DP_Sum = zeros_3D(75,85,12)
 RR_Sum = zeros_3D(75,85,12)
 SWR_Sum = zeros_3D(75,85,12)
+SWR_NonPond = zeros_3D(75,85,12)
 AWT_Total = zeros_3D(75,85,12)
+
 DP_Sum[75] = DP.Sum
 RR_Sum[75] = RR.Sum
 SWR_Sum[75] = SWR.Sum
+SWR_NonPond[75] = SWR.NonPond
 AWT_Total[75] = AWT.Total
 
 #print AWr.Pond[calendar_year-START_YEAR+1]
@@ -33,12 +36,25 @@ AWT_Total[75] = AWT.Total
 
 
 #DP.record(DP_File)
-output(DP_File,DP_Sum[75],75,75)
+output(DP_File,DP_Sum,75,75)
 #RR.record(RR_File)
-output(RR_File,RR_Sum[75],75,75)
+output(RR_File,RR_Sum,75,75)
 #SWR.record(SWR_File)
-output(SWR_File,SWR_Sum[75],75,75)
-output(AWT_File,AWT_Total[75],75,75)
+output(SWR_File,SWR_Sum,75,75)
+
+SWRGrow_File = open('SWRGrow_out.out','w') 
+output_2D(SWRGrow_File,SWR.Grow)
+
+SWRPond_File = open('SWRPond_out.out','w') 
+output_2D(SWRPond_File,SWR.Pond)
+
+SWRWaterPond_File = open('SWRWaterPond_out.out','w') 
+output_2D(SWRWaterPond_File,SWR.WaterPonded_Pond)
+
+SWRNonPond_File = open('SWRNonPond_out.out','w') 
+output(SWRNonPond_File,SWR_NonPond,75,75)
+
+output(AWT_File,AWT_Total,75,75)
 #LP.record(LP_File)
 #ETr.record(ETr_File)
 #AWr.record(AWr_File)

@@ -13,9 +13,9 @@ Grow = zeros(12)
 Burn = zeros_2D(85,12)
 Sum = zeros_2D(85,12)
 
-def find():
+def find(DU_id):
 
-    for DU_id in (75,75):
+    #for DU_id in (75,75):
         for mon in range(1, 12+1): # 1 to 12
             Pond[mon] = lookup.Pond[mon] * DP_RATE * area.Pond[DU_id]
             Grow[mon] = lookup.Grow[mon] * DP_RATE * area.Total[DU_id]
@@ -37,4 +37,4 @@ def record(outFile):
             
 
 
-find()
+find(75)
