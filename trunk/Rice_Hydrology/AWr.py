@@ -37,7 +37,7 @@ def find():
                 
                     
         for calendar_year in range(1922, 2006):
-            iyr = calendar_year-tableRain.START_YEAR+1
+            iyr = calendar_year-START_YEAR+1
             for mon in range(1, 12+1): # 1 to 12
                 if (mon != 2):
                     Pond[iyr][mon] = ETr.Pond_Op[mon] + (tableAW.Decomp_FlowT[mon] + tableAW.Pond[mon]- lookup.Pond[mon]*tableRain.Rain[iyr][mon]*0.1)*area.Pond[DU_id] + DP.Pond[mon] + LP.Pond[mon] 
@@ -51,7 +51,7 @@ def find():
 def record(outFile):
     
     for calendar_year in range(1922, 2006):
-        iyr = calendar_year-tableRain.START_YEAR+1
+        iyr = calendar_year-START_YEAR+1
         for mon in range(1,13):
             outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Grow[mon])+'  '+ str(Pond[iyr][mon])+'  '+ str(NonPond[mon])+'\n' )
             
