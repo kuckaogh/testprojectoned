@@ -14,9 +14,8 @@ Grow = zeros(12)
 #Burn = zeros_2D(85,12)
 #Sum = zeros_2D(85,12)
 
-def find():
+def find(DU_id):
 
-    for DU_id in (75,75):
         for mon in range(1, 12+1): # 1 to 12
             Pond[mon] = lookup.Pond[mon] * LP_RATE * area.Pond[DU_id]
             Grow[mon] = lookup.Grow[mon] * LP_RATE * area.Total[DU_id]
@@ -36,12 +35,3 @@ def find():
                 #Sum[iyr][mon] = Pond[mon] + NonPond[iyr][mon] + Grow[mon]
                 #Sum[iyr][mon] = (1.0-lookup.Reuse_Return[mon])*Sum[iyr][mon]
                 
-def record_debug(outFile):
-    
-    for calendar_year in range(1922, 2006):
-        iyr = calendar_year-START_YEAR+1
-        for mon in range(1,13):
-            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(NonPond[iyr][mon])+'\n' )
-
-
-find()
