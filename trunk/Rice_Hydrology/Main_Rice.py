@@ -1,6 +1,6 @@
-import os #os.getcwd()
+# main function
 import tableRain
-import ETr, LP, DP, AWr, RR, SWR, AW_Sum
+import DP, RR, SWR, AW_Sum
 #import ETr            # output
 #from numpy import *   # bug in ironclad
 #from functions import *
