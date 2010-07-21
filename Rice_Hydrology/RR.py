@@ -50,11 +50,3 @@ def find(DU_id):
                 Sum[iyr][mon] = (1-lookup.Reuse_Runoff[mon])* Sum[iyr][mon]
 
 
-
-
-find(75)
-
-#iyr = 1944-START_YEAR+1
-#print DP.Pond[12], LP.Pond[12], tableAW.Decomp_FlowT[12]*area.Pond[75], ETr.Pond_Op[12]
-
-#print Sum[iyr]

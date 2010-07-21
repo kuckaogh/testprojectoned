@@ -24,7 +24,6 @@ DU_id = 75
 
 def find(DU_id):
 #
-        DP.find(DU_id)
         for mon in range(1, 12+1): # 1 to 12
             
             NonPond[mon] = tableAW.NonPond[mon]*area.NonPond[DU_id] 
@@ -47,5 +46,3 @@ def find(DU_id):
                     Pond[iyr][mon] = max(0,Pond[iyr][mon])
                     
      
-
-find(75)
