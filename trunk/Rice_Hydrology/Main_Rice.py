@@ -20,6 +20,10 @@ SWR_Sum = zeros_3D(75,85,12)
 SWR_NonPond = zeros_3D(75,85,12)
 AWT_Total = zeros_3D(75,85,12)
 
+
+#SWR.find(75)
+#AWT.find(75)
+
 DP_Sum[75] = DP.Sum
 RR_Sum[75] = RR.Sum
 SWR_Sum[75] = SWR.Sum

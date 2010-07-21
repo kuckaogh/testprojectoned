@@ -16,11 +16,12 @@ _AW_Required  = zeros_2D(85,12)
 _Reuse_Runoff = zeros_2D(85,12)
 _Reuse_Return = zeros_2D(85,12)
 
-DU_id = 75
 
-def find():
-#
-    for DU_id in (75,75):                    
+
+def find(DU_id):
+#   
+
+    #for DU_id in (75,75):                    
         for calendar_year in range(1922, 2006):
             iyr = calendar_year-START_YEAR+1
             for mon in range(1, 12+1): # 1 to 12
@@ -38,4 +39,4 @@ def record(outFile):
             outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Total[iyr][mon])+'\n' )
             
 
-find()
+find(75)
