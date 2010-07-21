@@ -8,7 +8,6 @@ import ETr, OW, LP, DP, ETmet
 from functions import *
 from constants import *
 
-#outFile = open('DP_out', 'w')
 
 Pond_Op = zeros_2D(85,12)
 Pond_NonOp = zeros_2D(85,12)

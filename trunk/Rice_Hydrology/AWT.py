@@ -7,9 +7,7 @@ import AWr, RR, SWR
 from functions import *
 from constants import *
 
-#ETr_out = open('AWr.out', 'w')
 
-#def ETr_initialize(85)
 Reuse_Water = zeros_2D(85,12)
 Total = zeros_2D(85,12)
 _AW_Required  = zeros_2D(85,12)

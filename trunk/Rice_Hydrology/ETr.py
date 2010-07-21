@@ -5,20 +5,12 @@ import area, lookup, tableRain, tableET   # user input
 from functions import *
 from constants import *
 
-#ETr_out = open('out', 'w')
 
-#def ETr_initialize(85)
 Pond_Op = zeros(12)
 Pond_NonOp = zeros(12)
 NonPond = zeros(12)
 Grow = zeros(12)
 Burn = zeros_2D(85,12)
-#Sum = zeros_2D(85,12)
-
-#print tableET.Burn[1:12]
-#print lookup.NonGrow[1:12]
-#print area.Burn[75]
-
 
 def find(DU_id):
 
