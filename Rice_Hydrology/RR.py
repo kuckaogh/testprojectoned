@@ -29,20 +29,20 @@ def find(DU_id):
                 Grow[iyr][mon] = lookup.Grow[mon] * tableRain.Rain[iyr][mon] * area.Total[DU_id]
                 
                 # NonPond
-                NonPond[iyr][mon] = OW.NonPond[mon] + tableRain.Vol_NonPond[iyr][mon] - ETmet.NonPond[iyr][mon]-LP.NonPond[iyr][mon]
+                NonPond[iyr][mon] = OW.NonPond[mon] + tableRain.Vol_NonPond[DU_id][iyr][mon] - ETmet.NonPond[iyr][mon]-LP.NonPond[iyr][mon]
                 NonPond[iyr][mon] = max(0, NonPond[iyr][mon])
                 
                 # Pond
                 Demand_Pond[mon] = DP.Pond[mon]+LP.Pond[mon] + tableAW.Decomp_FlowT[mon]*area.Pond[DU_id]+ETr.Pond_Op[mon] + OW.Pond[mon]
-                Eff_Rain_Pond[iyr][mon] = min( Demand_Pond[mon], 0.1*tableRain.Vol_Pond_Op[iyr][mon] )
-                Pond_Op[iyr][mon] = tableRain.Vol_Pond_Op[iyr][mon] - Eff_Rain_Pond[iyr][mon]
+                Eff_Rain_Pond[iyr][mon] = min( Demand_Pond[mon], 0.1*tableRain.Vol_Pond_Op[DU_id][iyr][mon] )
+                Pond_Op[iyr][mon] = tableRain.Vol_Pond_Op[DU_id][iyr][mon] - Eff_Rain_Pond[iyr][mon]
                 
-                Pond_NonOp[iyr][mon]=max(0, tableRain.Vol_Pond_NonOp[iyr][mon] -ETr.Pond_NonOp[mon])
+                Pond_NonOp[iyr][mon]=max(0, tableRain.Vol_Pond_NonOp[DU_id][iyr][mon] -ETr.Pond_NonOp[mon])
                 
                 
                 # Burn
-                Eff_Rain_Burn[iyr][mon] = min( DP.Burn[iyr][mon]+ETr.Burn[iyr][mon], tableRain.Vol_Burn[iyr][mon] )
-                Burn[iyr][mon] = tableRain.Vol_Burn[iyr][mon] - Eff_Rain_Burn[iyr][mon]
+                Eff_Rain_Burn[iyr][mon] = min( DP.Burn[iyr][mon]+ETr.Burn[iyr][mon], tableRain.Vol_Burn[DU_id][iyr][mon] )
+                Burn[iyr][mon] = tableRain.Vol_Burn[DU_id][iyr][mon] - Eff_Rain_Burn[iyr][mon]
                 
                 # Sum
                 Sum[iyr][mon] = Grow[iyr][mon] + Pond_Op[iyr][mon] + Pond_NonOp[iyr][mon] + NonPond[iyr][mon] + Burn[iyr][mon]

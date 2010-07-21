@@ -27,7 +27,7 @@ def find(DU_id):
             
                 # NonPond
 
-                NonPond[iyr][mon]  = OW.NonPond[mon] + tableRain.Vol_NonPond[iyr][mon] - ETmet.NonPond[iyr][mon]
+                NonPond[iyr][mon]  = OW.NonPond[mon] + tableRain.Vol_NonPond[DU_id][iyr][mon] - ETmet.NonPond[iyr][mon]
                 NonPond[iyr][mon]  = max(0, NonPond[iyr][mon])
                 NonPond[iyr][mon]  = min(LP_RATE * area.NonPond[DU_id], NonPond[iyr][mon])
             

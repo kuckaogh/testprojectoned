@@ -20,51 +20,56 @@ SWR_Sum = zeros_3D(75,85,12)
 SWR_NonPond = zeros_3D(75,85,12)
 AWT_Total = zeros_3D(75,85,12)
 
-ETr.find(75)
-OW.find(75)
-ETmet.find(75)
-LP.find(75)
-DP.find(75)
-AWr.find(75)
-RR.find(75)
-SWR.find(75)
-AWT.find(75)
+def parallel(DU_id):
+    
+    ETr.find(DU_id)
+    OW.find(DU_id)
+    ETmet.find(DU_id)
+    LP.find(DU_id)
+    DP.find(DU_id)
+    AWr.find(DU_id)
+    RR.find(DU_id)
+    SWR.find(DU_id)
+    AWT.find(DU_id)
 
-DP_Sum[75] = DP.Sum
-RR_Sum[75] = RR.Sum
-SWR_Sum[75] = SWR.Sum
-SWR_NonPond[75] = SWR.NonPond
-AWT_Total[75] = AWT.Total
+    DP_Sum[DU_id] = DP.Sum
+    RR_Sum[DU_id] = RR.Sum
+    SWR_Sum[DU_id] = SWR.Sum
+    #SWR_NonPond[DU_id] = SWR.NonPond
+    AWT_Total[DU_id] = AWT.Total
+    
+    #DP.record(DP_File)
+    output(DP_File,DP_Sum,DU_id)
+    #RR.record(RR_File)
+    output(RR_File,RR_Sum,DU_id)
+    #SWR.record(SWR_File)
+    output(SWR_File,SWR_Sum,DU_id)
+    output(AWT_File,AWT_Total,DU_id)
 
 #print AWr.Pond[calendar_year-START_YEAR+1]
 #print AWr.NonPond
 
 #print LP.Grow
-
+parallel(75)
 
 #print RR.NonPond[iyr]
 
 
-#DP.record(DP_File)
-output(DP_File,DP_Sum,75,75)
-#RR.record(RR_File)
-output(RR_File,RR_Sum,75,75)
-#SWR.record(SWR_File)
-output(SWR_File,SWR_Sum,75,75)
 
-SWRGrow_File = open('SWRGrow_out.out','w') 
-output_2D(SWRGrow_File,SWR.Grow)
 
-SWRPond_File = open('SWRPond_out.out','w') 
-output_2D(SWRPond_File,SWR.Pond)
+#SWRGrow_File = open('SWRGrow_out.out','w') 
+#output_2D(SWRGrow_File,SWR.Grow)
+#
+#SWRPond_File = open('SWRPond_out.out','w') 
+#output_2D(SWRPond_File,SWR.Pond)
+#
+#SWRWaterPond_File = open('SWRWaterPond_out.out','w') 
+#output_2D(SWRWaterPond_File,SWR.WaterPonded_Pond)
+#
+#SWRNonPond_File = open('SWRNonPond_out.out','w') 
+#output(SWRNonPond_File,SWR_NonPond,75,75)
 
-SWRWaterPond_File = open('SWRWaterPond_out.out','w') 
-output_2D(SWRWaterPond_File,SWR.WaterPonded_Pond)
 
-SWRNonPond_File = open('SWRNonPond_out.out','w') 
-output(SWRNonPond_File,SWR_NonPond,75,75)
-
-output(AWT_File,AWT_Total,75,75)
 #LP.record(LP_File)
 #ETr.record(ETr_File)
 #AWr.record(AWr_File)
