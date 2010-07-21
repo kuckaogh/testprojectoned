@@ -19,7 +19,7 @@ def zeros_3D(sizeX, sizeY, sizeZ):
     return output    
 
 
-def output(outFile,var,ibegin,iend):
+def output(outFile,var,DU_id):
     
     for calendar_year in range(1922, 2006):
         iyr = calendar_year-START_YEAR+1
@@ -28,8 +28,8 @@ def output(outFile,var,ibegin,iend):
             #outFile.writelines( str(calendar_year)+'\t'+str(mon) +'\t'+ str(Sum[iyr][mon])+'\n' )
             #outFile.write( ("%4d\t%0.5f\n" %(calendar_year,Sum[iyr][mon])).rjust(9) )
             outFile.write( ("%d\t" %calendar_year).rjust(4)+("%d\t" %mon).rjust(4) )
-            for DU_id in range(ibegin,iend+1):
-                outFile.write( ("%.2f\t" %var[DU_id][iyr][mon]).rjust(10)  )
+            #for DU_id in range(ibegin,iend+1):
+            outFile.write( ("%.2f\t" %var[DU_id][iyr][mon]).rjust(10)  )
             outFile.write( '\n' )
             #outFile.write( "ser %s \n" %(repr(Sum[iyr][mon]).rjust(2) ) )
             #for i in range(1,5):
