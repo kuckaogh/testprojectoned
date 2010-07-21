@@ -22,15 +22,7 @@ Demand_Pond = zeros(12)
 Eff_Rain_Pond = zeros_2D(85,12)
 Eff_Rain_Burn = zeros_2D(85,12)
 
-def find():
-
-    for DU_id in (75,75):
-        for mon in range(1, 12+1): # 1 to 12
-            #Pond[mon] = lookup.Pond[mon] * DP_RATE * area.Pond[DU_id]
-            #Grow[mon] = lookup.Grow[mon] * tableRain.Rain[mon] * area.Total[DU_id]
-            #NonPond[mon]  = 0
-            k=3
-    
+def find(DU_id):
         for calendar_year in range(1922, 2006):
             iyr = calendar_year - START_YEAR + 1
             for mon in range(1, 12+1): # 1 to 12
@@ -64,7 +56,7 @@ def record(outFile):
             outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Sum[iyr][mon])+'\n' )
 
 
-find()
+find(75)
 
 #iyr = 1944-START_YEAR+1
 #print DP.Pond[12], LP.Pond[12], tableAW.Decomp_FlowT[12]*area.Pond[75], ETr.Pond_Op[12]
