@@ -28,13 +28,8 @@ def find(DU_id):
                 Burn[iyr][mon] = lookup.NonGrow[mon] * min(tableRain.Rain[iyr][mon],DP_RATE)* area.Burn[DU_id]
                 Sum[iyr][mon] = Burn[iyr][mon] + ( Pond[mon] + NonPond[mon] + Grow[mon] )
 
-def record(outFile):
-    
-    for calendar_year in range(1922, 2006):
-        iyr = calendar_year-START_YEAR+1
-        for mon in range(1,13):
-            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Sum[iyr][mon])+'\n' )
+
             
 
 
-find(75)
+#find(75)
