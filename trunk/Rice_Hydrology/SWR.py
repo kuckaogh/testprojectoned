@@ -20,16 +20,17 @@ Sum = zeros_2D(85,12)
 
 def find(DU_id):
 
+        DP.find(DU_id)
        # for Grow
-        for mon in range(1, 12+1): # 1 to 12                      
-            if mon in(5,6,7,8):
-                WaterPonded_Grow[mon] = WaterPonded_Grow[mon-1] + AWr.Grow[mon] - DP.Grow[mon] -LP.Grow[mon]- tableAW.Grow_FlowT[mon]*area.Total[DU_id] - ETr.Grow[mon]
+        for mon in(5,6,7,8):                   
+            WaterPonded_Grow[mon] = WaterPonded_Grow[mon-1] + AWr.Grow[mon] - DP.Grow[mon] -LP.Grow[mon]- tableAW.Grow_FlowT[mon]*area.Total[DU_id] - ETr.Grow[mon]
        
         for mon in range(1, 12+1): # 1 to 12
             Grow[mon] = LP.Grow[mon] +tableAW.Grow_FlowT[mon]*area.Total[DU_id]
-            if (mon == 9 ):
-                Grow[mon] = WaterPonded_Grow[mon-1] + tableAW.Grow_FlowT[mon]*area.Total[DU_id] - DP.Grow[mon]
-                Grow[mon] = max(0,Grow[mon])
+
+        mon=9
+        Grow[mon] = WaterPonded_Grow[mon-1] + tableAW.Grow_FlowT[mon]*area.Total[DU_id] - DP.Grow[mon]
+        Grow[mon] = max(0,Grow[mon])
                 
  
         # for Ponded
@@ -54,13 +55,7 @@ def find(DU_id):
                 NonPond[iyr][mon] = LP.NonPond[iyr][mon]
                 Sum[iyr][mon]     = (1.0 - lookup.Reuse_Return[mon] ) *( Grow[mon]+Pond[mon]+NonPond[iyr][mon] )
 
-                
-def record(outFile):
-    
-    for calendar_year in range(1922, 2006):
-        iyr = calendar_year-START_YEAR+1
-        for mon in range(1,13):
-            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Sum[iyr][mon])+'\n' )
+
 
 
 find(75)

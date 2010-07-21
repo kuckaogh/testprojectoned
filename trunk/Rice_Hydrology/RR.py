@@ -23,6 +23,7 @@ Eff_Rain_Pond = zeros_2D(85,12)
 Eff_Rain_Burn = zeros_2D(85,12)
 
 def find(DU_id):
+        DP.find(DU_id)
         for calendar_year in range(1922, 2006):
             iyr = calendar_year - START_YEAR + 1
             for mon in range(1, 12+1): # 1 to 12
@@ -48,12 +49,7 @@ def find(DU_id):
                 Sum[iyr][mon] = Grow[iyr][mon] + Pond_Op[iyr][mon] + Pond_NonOp[iyr][mon] + NonPond[iyr][mon] + Burn[iyr][mon]
                 Sum[iyr][mon] = (1-lookup.Reuse_Runoff[mon])* Sum[iyr][mon]
 
-def record(outFile):
-    
-    for calendar_year in range(1922, 2006):
-        iyr = calendar_year-START_YEAR+1
-        for mon in range(1,13):
-            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Sum[iyr][mon])+'\n' )
+
 
 
 find(75)

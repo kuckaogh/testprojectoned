@@ -22,9 +22,9 @@ DU_id = 75
 #Grow = tableAW.Grow + tableAW.Grow_FlowT + DP.Grow
 #Grow[mon] = ETr.Grow[mon] + tableAW.Grow_FlowT[mon]*area.Total[DU_id] + tableAW.Grow[mon]*area.Total[DU_id] + DP.Grow[mon] + LP.Grow[mon]
 
-def find():
+def find(DU_id):
 #
-    for DU_id in (75,75):
+        DP.find(DU_id)
         for mon in range(1, 12+1): # 1 to 12
             
             NonPond[mon] = tableAW.NonPond[mon]*area.NonPond[DU_id] 
@@ -46,14 +46,6 @@ def find():
                     Pond[iyr][mon] = ETr.Pond_Op[mon] + (tableAW.Decomp_FlowT[mon] + tableAW.Pond[mon]- lookup.Pond[mon]*tableRain.Rain[iyr][mon]*0.1)*area.Pond[DU_id]
                     Pond[iyr][mon] = max(0,Pond[iyr][mon])
                     
-                    
-                    
-def record(outFile):
-    
-    for calendar_year in range(1922, 2006):
-        iyr = calendar_year-START_YEAR+1
-        for mon in range(1,13):
-            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Grow[mon])+'  '+ str(Pond[iyr][mon])+'  '+ str(NonPond[mon])+'\n' )
-            
+     
 
-find()
+find(75)
