@@ -44,4 +44,3 @@ def record(outFile):
             outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(NonPond[iyr][mon])+' '+str(OW.NonPond[mon]) +'\n' )
             
 
-record(open('test.out','w'))
