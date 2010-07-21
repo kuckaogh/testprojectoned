@@ -12,8 +12,8 @@ from constants import *
 Pond = zeros_2D(85,12)
 NonPond = zeros(12)
 Grow = zeros(12)
-Burn = zeros_2D(85,12)
-Sum = zeros_2D(85,12)
+#Burn = zeros_2D(85,12)
+#Sum = zeros_2D(85,12)
 
 
 # non-Sept

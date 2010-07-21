@@ -11,8 +11,8 @@ from constants import *
 Pond = zeros(12)
 NonPond = zeros_2D(85,12)
 Grow = zeros(12)
-Burn = zeros_2D(85,12)
-Sum = zeros_2D(85,12)
+#Burn = zeros_2D(85,12)
+#Sum = zeros_2D(85,12)
 
 def find():
 
@@ -32,15 +32,16 @@ def find():
                 NonPond[iyr][mon]  = max(0, NonPond[iyr][mon])
                 NonPond[iyr][mon]  = min(LP_RATE * area.NonPond[DU_id], NonPond[iyr][mon])
             
-                Burn[iyr][mon] = lookup.NonGrow[mon] * min(tableRain.Rain[iyr][mon],LP_RATE)* area.Burn[DU_id]
-                Sum[iyr][mon] = Burn[iyr][mon] + ( Pond[mon] + NonPond[iyr][mon] + Grow[mon] )
-
-def record(outFile):
+                #Burn[iyr][mon] = lookup.NonGrow[mon] * min(tableRain.Rain[iyr][mon],LP_RATE)* area.Burn[DU_id]
+                #Sum[iyr][mon] = Pond[mon] + NonPond[iyr][mon] + Grow[mon]
+                #Sum[iyr][mon] = (1.0-lookup.Reuse_Return[mon])*Sum[iyr][mon]
+                
+def record_debug(outFile):
     
     for calendar_year in range(1922, 2006):
         iyr = calendar_year-tableRain.START_YEAR+1
         for mon in range(1,13):
-            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Sum[iyr][mon])+'\n' )
+            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(NonPond[iyr][mon])+'\n' )
 
 
 find()
