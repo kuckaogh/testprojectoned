@@ -23,7 +23,7 @@ def find():
 
     
         for calendar_year in range(1922, 2006):
-            iyr = calendar_year - tableRain.START_YEAR + 1
+            iyr = calendar_year - START_YEAR + 1
             for mon in range(1, 12+1): # 1 to 12
             
                 # NonPond
@@ -39,7 +39,7 @@ def find():
 def record_debug(outFile):
     
     for calendar_year in range(1922, 2006):
-        iyr = calendar_year-tableRain.START_YEAR+1
+        iyr = calendar_year-START_YEAR+1
         for mon in range(1,13):
             outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(NonPond[iyr][mon])+'\n' )
 

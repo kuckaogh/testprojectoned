@@ -23,7 +23,7 @@ for DU_id in (75,75):
     
     
         # for calendar_year in range(1922, 2006):
-            # iyr = calendar_year - tableRain.START_YEAR + 1
+            # iyr = calendar_year - START_YEAR + 1
             # for mon in range(1, 12+1): # 1 to 12
                 # k=3
 

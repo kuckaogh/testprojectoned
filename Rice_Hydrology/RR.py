@@ -32,7 +32,7 @@ def find():
             k=3
     
         for calendar_year in range(1922, 2006):
-            iyr = calendar_year - tableRain.START_YEAR + 1
+            iyr = calendar_year - START_YEAR + 1
             for mon in range(1, 12+1): # 1 to 12
                 Grow[iyr][mon] = lookup.Grow[mon] * tableRain.Rain[iyr][mon] * area.Total[DU_id]
                 
@@ -59,14 +59,14 @@ def find():
 def record(outFile):
     
     for calendar_year in range(1922, 2006):
-        iyr = calendar_year-tableRain.START_YEAR+1
+        iyr = calendar_year-START_YEAR+1
         for mon in range(1,13):
             outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Sum[iyr][mon])+'\n' )
 
 
 find()
 
-#iyr = 1944-tableRain.START_YEAR+1
+#iyr = 1944-START_YEAR+1
 #print DP.Pond[12], LP.Pond[12], tableAW.Decomp_FlowT[12]*area.Pond[75], ETr.Pond_Op[12]
 
 #print Sum[iyr]
