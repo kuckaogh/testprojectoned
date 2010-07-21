@@ -20,7 +20,6 @@ Sum = zeros_2D(85,12)
 
 def find(DU_id):
 
-        DP.find(DU_id)
        # for Grow
         for mon in(5,6,7,8):                   
             WaterPonded_Grow[mon] = WaterPonded_Grow[mon-1] + AWr.Grow[mon] - DP.Grow[mon] -LP.Grow[mon]- tableAW.Grow_FlowT[mon]*area.Total[DU_id] - ETr.Grow[mon]
@@ -58,6 +57,6 @@ def find(DU_id):
 
 
 
-find(75)
+
 
 

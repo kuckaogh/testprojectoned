@@ -1,6 +1,6 @@
 # main function
 import tableRain
-import DP, RR, SWR, AWT
+import DP, AWr, RR, SWR, AWT
 #import ETr            # output
 #from numpy import *   # bug in ironclad
 from functions import *
@@ -20,9 +20,11 @@ SWR_Sum = zeros_3D(75,85,12)
 SWR_NonPond = zeros_3D(75,85,12)
 AWT_Total = zeros_3D(75,85,12)
 
-
-#SWR.find(75)
-#AWT.find(75)
+DP.find(75)
+AWr.find(75)
+RR.find(75)
+SWR.find(75)
+AWT.find(75)
 
 DP_Sum[75] = DP.Sum
 RR_Sum[75] = RR.Sum
