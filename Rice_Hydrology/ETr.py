@@ -20,9 +20,8 @@ Burn = zeros_2D(85,12)
 #print area.Burn[75]
 
 
-def find():
+def find(DU_id):
 
-    for DU_id in (75,75):
         for mon in range(1, 12+1): # 1 to 12
     
             Grow[mon] = lookup.Grow[mon] * tableET.Grow[mon] * area.Total[DU_id]
@@ -42,16 +41,3 @@ def find():
             for mon in range(1, 12+1): # 1 to 12
                 Burn[iyr][mon] = lookup.NonGrow[mon] * tableET.Burn[mon] * area.Burn[DU_id]
 
-def record(outFile):
-    
-    for calendar_year in range(1922, 2006):
-        iyr = calendar_year-START_YEAR+1
-        for mon in range(1,13):
-            outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Grow[mon])+'  '+ str(Pond_Op[mon])+'  '+ str(NonPond[mon])+'  '+ str(Burn[iyr][mon])+'\n' )
-            
-
-find()
-
-#mon=7
-#DU_id=75
-#print Grow[mon]*area.Pond_Ratio[mon], tableET.Pond[mon] * area.Pond[DU_id]
