@@ -29,9 +29,11 @@ for line in _lines[2:]:
         month = int(line[1])
         iyr = year - START_YEAR + 1
         #print year, month, iyr
-        Rain[iyr][month] = float(line[2])
+        
         
         for DU_id in (75,75):
+            Rain[iyr][month] = float(line[2])    
+            
             Vol_NonPond[DU_id][iyr][month] = lookup.NonGrow[month]*area.NonPond[DU_id]*Rain[iyr][month]
 
             Vol_Grow[DU_id][iyr][month]    = lookup.Grow[month]*area.Total[DU_id]*Rain[iyr][month]
