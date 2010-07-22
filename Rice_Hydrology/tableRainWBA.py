@@ -6,7 +6,7 @@ import lookup, area
 from constants import *
 from functions import *
 
-_inFile = open('rainfall_by_WBA.txt','r')
+_inFile = open('table_rainfall_by_WBA.txt','r')
 
 WBA_name=['NA']
 WBA_name_short=[]
