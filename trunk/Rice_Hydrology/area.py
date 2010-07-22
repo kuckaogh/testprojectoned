@@ -10,7 +10,7 @@ Burn = ['NA']
 Total = ['NA']
 
 
-areaFile = open('area_table.txt', 'r')
+areaFile = open('table_area.txt', 'r')
 
 lines = areaFile.readlines()
 for i,line in enumerate (lines[1:]):  #skip comment 
