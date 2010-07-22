@@ -1,5 +1,5 @@
 
-DU= ['NA'] # 75 is 73_XA
+DU_name= ['NA'] # 75 is 73_XA
 
 Pond_Ratio = ['NA']
 Pond = ['NA']
@@ -18,21 +18,21 @@ for i,line in enumerate (lines[1:]):  #skip comment
     line = line.strip().split()
     #print line
     try:
-        DU.append(line[0])
+        DU_name.append(line[0])
         
         _total = float(line[1])
-        pr = float(line[2])/100
-        npr = float(line[3])/100
-        br  = 1.0 - pr - npr
+        _pr = float(line[2])/100
+        _npr = float(line[3])/100
+        _br  = 1.0 - _pr - _npr
         
         Total.append(_total)
         
-        Pond_Ratio.append(pr)
-        Pond.append( _total * pr )
-        NonPond_Ratio.append(npr)
-        NonPond.append( _total * npr )
-        Burn_Ratio.append( br )
-        Burn.append( _total * br)
+        Pond_Ratio.append(_pr)
+        Pond.append( _total * _pr )
+        NonPond_Ratio.append(_npr)
+        NonPond.append( _total * _npr )
+        Burn_Ratio.append( _br )
+        Burn.append( _total * _br)
     except:
         print "Error!"
     
