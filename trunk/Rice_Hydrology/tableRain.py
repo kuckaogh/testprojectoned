@@ -54,7 +54,7 @@ for (DU_id, _DU_name) in enumerate(DU_name_short):
                 
                               
                 
-print Rain[75][25][3]
+#print Rain[75][25][3]
 
 
                 
