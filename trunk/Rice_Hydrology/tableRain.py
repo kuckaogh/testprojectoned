@@ -1,10 +1,12 @@
+# Rainfall data by DU
 import area, lookup
+#import tableRainWBA
 from functions import *
 from constants import *
 
 UNIT = 'ft'
 
-DU = ['NA']
+DU_name = ['NA']
 
 Rain           = zeros_2D(100,12)
 Vol_NonPond    = zeros_3D(75,100,12)
@@ -17,8 +19,8 @@ rainfall_File = open('rainfall.txt','r')
 
 _lines = rainfall_File.readlines()
 
-title =_lines[1].split()
-DU.append(title[1+1])
+_title =_lines[1].split()
+DU_name[1:]=_title[1+1:]
 
 n_lines = len(_lines[2:])
 
