@@ -9,16 +9,16 @@ from constants import *
 #outFile = open('LP_out', 'w')
 
 Pond = zeros(12)
-NonPond = zeros_2D(85,12)
+NonPond = zeros_2D(100,12)
 Grow = zeros(12)
 WaterPonded_Grow = zeros(12)
 WaterPonded_Pond = zeros(12)
-Sum = zeros_2D(85,12)
+Sum = zeros_2D(100,12)
 
-#Burn = zeros_2D(85,12)
-#Sum = zeros_2D(85,12)
+#Burn = zeros_2D(100,12)
+#Sum = zeros_2D(100,12)
 
-def find(DU_id):
+def find(DU_id,year_begin, year_end):
 
        # for Grow
         for mon in(5,6,7,8):                   
@@ -47,7 +47,7 @@ def find(DU_id):
                 Pond[mon] = max( 0, Pond[mon] ) 
                 
        # for NonPonded and Sum    
-        for calendar_year in range(1922, 2006):
+        for calendar_year in range(year_begin, year_end+1):
             iyr = calendar_year - START_YEAR + 1
             for mon in range(1, 12+1): # 1 to 12
 

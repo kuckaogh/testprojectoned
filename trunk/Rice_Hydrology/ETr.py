@@ -10,9 +10,9 @@ Pond_Op = zeros(12)
 Pond_NonOp = zeros(12)
 NonPond = zeros(12)
 Grow = zeros(12)
-Burn = zeros_2D(85,12)
+Burn = zeros_2D(100,12)
 
-def find(DU_id):
+def find(DU_id,year_begin, year_end):
 
         for mon in range(1, 12+1): # 1 to 12
     
@@ -28,7 +28,7 @@ def find(DU_id):
             NonPond[mon] = max(0,NonPond[mon])
     
     
-        for calendar_year in range(1922, 2006):
+        for calendar_year in range(year_begin, year_end+1):
             iyr = calendar_year-START_YEAR+1
             for mon in range(1, 12+1): # 1 to 12
                 Burn[iyr][mon] = lookup.NonGrow[mon] * tableET.Burn[mon] * area.Burn[DU_id]

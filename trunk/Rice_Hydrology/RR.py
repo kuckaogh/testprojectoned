@@ -9,21 +9,21 @@ from functions import *
 from constants import *
 
 
-Pond_Op = zeros_2D(85,12)
-Pond_NonOp = zeros_2D(85,12)
-NonPond = zeros_2D(85,12)
-Grow = zeros_2D(85,12)
-Burn = zeros_2D(85,12)
-Sum = zeros_2D(85,12)
+Pond_Op = zeros_2D(100,12)
+Pond_NonOp = zeros_2D(100,12)
+NonPond = zeros_2D(100,12)
+Grow = zeros_2D(100,12)
+Burn = zeros_2D(100,12)
+Sum = zeros_2D(100,12)
 
 
 Demand_Pond = zeros(12)
-Eff_Rain_Pond = zeros_2D(85,12)
-Eff_Rain_Burn = zeros_2D(85,12)
+Eff_Rain_Pond = zeros_2D(100,12)
+Eff_Rain_Burn = zeros_2D(100,12)
 
-def find(DU_id):
-        DP.find(DU_id)
-        for calendar_year in range(1922, 2006):
+def find(DU_id,year_begin, year_end):
+        #DP.find(DU_id)
+        for calendar_year in range(year_begin, year_end+1):
             iyr = calendar_year - START_YEAR + 1
             for mon in range(1, 12+1): # 1 to 12
                 Grow[iyr][mon] = lookup.Grow[mon] * tableRain.Rain[DU_id][iyr][mon] * area.Total[DU_id]

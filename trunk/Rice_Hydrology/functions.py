@@ -19,11 +19,18 @@ def zeros_3D(sizeX, sizeY, sizeZ):
     return output    
 
 
-def output(outFile,var,DU_id):
+def output(outFile,var,DU_id,year_begin, month_begin,year_end,month_end):
     
-    for calendar_year in range(1922, 2006):
+    for calendar_year in range(year_begin, year_end+1):
         iyr = calendar_year-START_YEAR+1
-        for mon in range(1,13):
+        _mon_b = 1
+        _mon_e = 12
+        if calendar_year == year_begin: 
+            _mon_b = month_begin
+        elif calendar_year == year_end:
+            _mon_e = month_end    
+        
+        for mon in range(_mon_b, _mon_e+1):
             #outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Sum[iyr][mon])+'\n' )
             #outFile.writelines( str(calendar_year)+'\t'+str(mon) +'\t'+ str(Sum[iyr][mon])+'\n' )
             #outFile.write( ("%4d\t%0.5f\n" %(calendar_year,Sum[iyr][mon])).rjust(9) )
@@ -36,11 +43,19 @@ def output(outFile,var,DU_id):
             #    outFile.write( '%s\t' %str(area.DU[i]) )
             #    outFile.write( '\n' )    
 
-def output_4digit(outFile,var,DU_id):
+def output_4digit(outFile,var,DU_id,year_begin,month_begin,year_end,month_end):
     
-    for calendar_year in range(1922, 2006):
+    for calendar_year in range(year_begin, year_end+1):
         iyr = calendar_year-START_YEAR+1
-        for mon in range(1,13):
+        
+        _mon_b = 1
+        _mon_e = 12
+        if calendar_year == year_begin: 
+            _mon_b = month_begin
+        elif calendar_year == year_end:
+            _mon_e = month_end    
+        
+        for mon in range(_mon_b, _mon_e+1):
             #outFile.writelines( str(calendar_year)+'  '+str(mon) +'  '+ str(Sum[iyr][mon])+'\n' )
             #outFile.writelines( str(calendar_year)+'\t'+str(mon) +'\t'+ str(Sum[iyr][mon])+'\n' )
             #outFile.write( ("%4d\t%0.5f\n" %(calendar_year,Sum[iyr][mon])).rjust(9) )

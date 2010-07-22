@@ -65,13 +65,6 @@ for _line in _lines[2:]:
 #    shortname = name.replace 
 #print WBA_name_short
 
-str = 'spam_egg_yel'
-m = re.search(r'(?<=_)\w+', str)
-m = re.findall(r'([a-zA-Z0-9]+)_', str)
-#print m
-#strnew = str.replace('_'+m.group(0),'')
-#print strnew
-
 
 
 #for _line in _lines[2:]:
