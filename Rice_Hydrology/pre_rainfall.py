@@ -32,16 +32,15 @@ for (DU_id, _DU_name) in enumerate(DU_name_short):
                     Rain[DU_id] = tableRainWBA.Rain[_WBA_id]
                     #Rain[DU_id] = Rain[DU_id]/12
 
-                    Vol_NonPond[DU_id][iyr][month]  = 
-                    Vol_Grow[DU_id][iyr][month]    = 
-                    Vol_Pond_Op[DU_id][iyr][month]    =
+                    Vol_NonPond[DU_id]    = Vol_NonPond[_WBA_id]   
+                    Vol_Grow[DU_id]       = Vol_Grow[_WBA_id]      
+                    Vol_Pond_Op[DU_id]    = Vol_Pond_Op[_WBA_id]   
                    
-                    Vol_Pond_NonOp[DU_id][iyr][month] = 
-                    Vol_Pond_NonOp[DU_id][iyr][month] =  
-                    Vol_Burn[DU_id][iyr][month]    = 
+                    Vol_Pond_NonOp[DU_id] = Vol_Pond_NonOp[_WBA_id]
+                    Vol_Pond_NonOp[DU_id] = Vol_Pond_NonOp[_WBA_id]
+                    Vol_Burn[DU_id]       = Vol_Burn[_WBA_id]      
                 
-                
-                
+                              
                 
 print Rain[75][25][3]
 
