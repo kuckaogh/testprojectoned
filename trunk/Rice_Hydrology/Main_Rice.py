@@ -9,10 +9,7 @@ from constants import *
 #ETr_File = open('ETr_out.out','w') 
 #AWr_File = open('AWr_out.out','w') 
 #LP_File = open('LP_out.out','w') 
-DP_File = open('DP_out.out','w') 
-RR_File = open('RR_out.out','w') 
-SWR_File = open('SWR_out.out','w') 
-AWT_File = open('AWT_out.out','w') 
+
 
 DP_Sum = zeros_3D(75,100,12)
 RR_Sum = zeros_3D(75,100,12)
@@ -21,6 +18,12 @@ SWR_NonPond = zeros_3D(75,100,12)
 AWT_Total = zeros_3D(75,100,12)
 
 def parallel(DU_id,year_begin, month_begin, year_end, month_end):
+    
+    DP_File =       open('DP_'+str(DU_id)+'.out','w') 
+    RR_File =       open('RR_'+str(DU_id)+'.out','w') 
+    SWR_File =      open('SWR_'+str(DU_id)+'.out','w') 
+    AWT_File =      open('AWT_'+str(DU_id)+'.out','w')
+    rainfall_File = open('rainfall_'+str(DU_id)+'.out','w') 
     
     ETr.find(DU_id,year_begin, year_end)
     OW.find(DU_id)
@@ -46,7 +49,7 @@ def parallel(DU_id,year_begin, month_begin, year_end, month_end):
     output(SWR_File,SWR_Sum,DU_id,year_begin, month_begin, year_end, month_end)
     output(AWT_File,AWT_Total,DU_id,year_begin, month_begin, year_end, month_end)
     
-    rainfall_File = open('rainfall_'+str(DU_id)+'.out','w') 
+    
     output_4digit(rainfall_File,tableRain.Rain,DU_id,year_begin, month_begin, year_end, month_end)
 
 #print AWr.Pond[calendar_year-START_YEAR+1]
