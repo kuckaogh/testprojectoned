@@ -26,7 +26,7 @@ def find(DU_id):
         for calendar_year in range(1922, 2006):
             iyr = calendar_year - START_YEAR + 1
             for mon in range(1, 12+1): # 1 to 12
-                Grow[iyr][mon] = lookup.Grow[mon] * tableRain.Rain[iyr][mon] * area.Total[DU_id]
+                Grow[iyr][mon] = lookup.Grow[mon] * tableRain.Rain[DU_id][iyr][mon] * area.Total[DU_id]
                 
                 # NonPond
                 NonPond[iyr][mon] = OW.NonPond[mon] + tableRain.Vol_NonPond[DU_id][iyr][mon] - ETmet.NonPond[iyr][mon]-LP.NonPond[iyr][mon]
