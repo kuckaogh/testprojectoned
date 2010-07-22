@@ -6,7 +6,7 @@ NonGrow=['NA']
 Reuse_Runoff =['NA']
 Reuse_Return =['NA']
 
-lookup_flags_file = open('lookup.txt', 'r')
+lookup_flags_file = open('table_lookup.txt', 'r')
 
 lines = lookup_flags_file.readlines()
 for i,line in enumerate (lines[2:]):  #skip title and comment 
