@@ -1,5 +1,5 @@
 # main function
-import tableRain
+import tableRain, area
 import ETr, OW, ETmet, LP, DP, AWr, RR, SWR, AWT
 #import ETr            # output
 #from numpy import *   # bug in ironclad
@@ -19,11 +19,11 @@ AWT_Total = zeros_3D(75,100,12)
 
 def parallel(DU_id,year_begin, month_begin, year_end, month_end):
     
-    DP_File =       open('DP_'+str(DU_id)+'.out','w') 
-    RR_File =       open('RR_'+str(DU_id)+'.out','w') 
-    SWR_File =      open('SWR_'+str(DU_id)+'.out','w') 
-    AWT_File =      open('AWT_'+str(DU_id)+'.out','w')
-    rainfall_File = open('rainfall_'+str(DU_id)+'.out','w') 
+    DP_File =       open('DeepPercolation_'+area.DU_name[DU_id]+'.out','w') 
+    RR_File =       open('RainfallRunoff_'+area.DU_name[DU_id]+'.out','w') 
+    SWR_File =      open('ReturnFlow_'+area.DU_name[DU_id]+'.out','w') 
+    AWT_File =      open('AppliedWaterDemand_'+area.DU_name[DU_id]+'.out','w')
+    rainfall_File = open('Rainfall_'+area.DU_name[DU_id]+'.out','w') 
     
     ETr.find(DU_id,year_begin, year_end)
     OW.find(DU_id)
