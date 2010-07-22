@@ -9,19 +9,19 @@ from constants import *
 #outFile = open('LP_out', 'w')
 
 Pond = zeros(12)
-NonPond = zeros_2D(85,12)
+NonPond = zeros_2D(100,12)
 Grow = zeros(12)
-#Burn = zeros_2D(85,12)
-#Sum = zeros_2D(85,12)
+#Burn = zeros_2D(100,12)
+#Sum = zeros_2D(100,12)
 
-def find(DU_id):
+def find(DU_id,year_begin, year_end):
 
         for mon in range(1, 12+1): # 1 to 12
             Pond[mon] = lookup.Pond[mon] * LP_RATE * area.Pond[DU_id]
             Grow[mon] = lookup.Grow[mon] * LP_RATE * area.Total[DU_id]
 
     
-        for calendar_year in range(1922, 2006):
+        for calendar_year in range(year_begin, year_end+1):
             iyr = calendar_year - START_YEAR + 1
             for mon in range(1, 12+1): # 1 to 12
             
