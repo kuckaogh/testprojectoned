@@ -45,6 +45,9 @@ def parallel(DU_id,year_begin, month_begin, year_end, month_end):
     #SWR.record(SWR_File)
     output(SWR_File,SWR_Sum,DU_id,year_begin, month_begin, year_end, month_end)
     output(AWT_File,AWT_Total,DU_id,year_begin, month_begin, year_end, month_end)
+    
+    rainfall_File = open('rainfall_'+str(DU_id)+'.out','w') 
+    output_4digit(rainfall_File,tableRain.Rain,DU_id,year_begin, month_begin, year_end, month_end)
 
 #print AWr.Pond[calendar_year-START_YEAR+1]
 #print AWr.NonPond
@@ -55,8 +58,7 @@ parallel(75,1921,10,2006,9)
 #print RR.NonPond[iyr]
 
 
-rainfall_File = open('rainfall_75.out','w') 
-output_4digit(rainfall_File,tableRain.Rain,75,1921,10,2006,9)
+
 #
 #rain_Vol_Grow_File = open('rain_vol_grow_75.out','w') 
 #output_4digit(rain_Vol_Grow_File,tableRain.Vol_Grow,75)
