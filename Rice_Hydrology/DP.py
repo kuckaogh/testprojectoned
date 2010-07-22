@@ -22,7 +22,7 @@ def find(DU_id):
         for calendar_year in range(1922, 2006):
             iyr = calendar_year - START_YEAR + 1
             for mon in range(1, 12+1): # 1 to 12
-                Burn[iyr][mon] = lookup.NonGrow[mon] * min(tableRain.Rain[iyr][mon],DP_RATE)* area.Burn[DU_id]
+                Burn[iyr][mon] = lookup.NonGrow[mon] * min(tableRain.Rain[DU_id][iyr][mon],DP_RATE)* area.Burn[DU_id]
                 Sum[iyr][mon] = Burn[iyr][mon] + ( Pond[mon] + NonPond[mon] + Grow[mon] )
 
 

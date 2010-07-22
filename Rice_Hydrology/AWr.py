@@ -29,10 +29,10 @@ def find(DU_id):
             iyr = calendar_year-START_YEAR+1
             for mon in range(1, 12+1): # 1 to 12
                 if (mon != 2):
-                    Pond[iyr][mon] = ETr.Pond_Op[mon] + (tableAW.Decomp_FlowT[mon] + tableAW.Pond[mon]- lookup.Pond[mon]*tableRain.Rain[iyr][mon]*0.1)*area.Pond[DU_id] + DP.Pond[mon] + LP.Pond[mon] 
+                    Pond[iyr][mon] = ETr.Pond_Op[mon] + (tableAW.Decomp_FlowT[mon] + tableAW.Pond[mon]- lookup.Pond[mon]*tableRain.Rain[DU_id][iyr][mon]*0.1)*area.Pond[DU_id] + DP.Pond[mon] + LP.Pond[mon] 
                     Pond[iyr][mon] = max(0,Pond[iyr][mon])
                 else:
-                    Pond[iyr][mon] = ETr.Pond_Op[mon] + (tableAW.Decomp_FlowT[mon] + tableAW.Pond[mon]- lookup.Pond[mon]*tableRain.Rain[iyr][mon]*0.1)*area.Pond[DU_id]
+                    Pond[iyr][mon] = ETr.Pond_Op[mon] + (tableAW.Decomp_FlowT[mon] + tableAW.Pond[mon]- lookup.Pond[mon]*tableRain.Rain[DU_id][iyr][mon]*0.1)*area.Pond[DU_id]
                     Pond[iyr][mon] = max(0,Pond[iyr][mon])
                     
      
