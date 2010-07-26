@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{fe41c47b-b10b-4083-bbfe-a3a6356747d5}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <AssemblyName>ConsoleApplication1</AssemblyName>
+    <Name>Rice_Hydrology</Name>
+    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <InterpreterPath />
+    <CommandLineArguments>
+    </CommandLineArguments>
+    <IsWindowsApplication>False</IsWindowsApplication>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="area.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\AWr.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\AWT.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\DP.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\ETmet.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\ETr.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\LP.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\Main_Rice.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\OW.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\RR.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\SWR.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\tableAW.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\tableET.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\tableRainWBA.py" />
+    <None Include="functions.py" />
+    <None Include="lookup.py" />
+    <None Include="constants.py" />
+    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\tableRain.py" />
+  </ItemGroup>
+</Project>
