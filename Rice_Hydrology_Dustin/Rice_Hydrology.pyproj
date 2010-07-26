@@ -28,22 +28,22 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="area.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\AWr.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\AWT.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\DP.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\ETmet.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\ETr.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\LP.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\Main_Rice.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\OW.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\RR.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\SWR.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\tableAW.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\tableET.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\tableRainWBA.py" />
+    <None Include="AWr.py" />
+    <None Include="AWT.py" />
+    <None Include="DP.py" />
+    <None Include="ETmet.py" />
+    <None Include="ETr.py" />
+    <None Include="LP.py" />
+    <None Include="Main_Rice.py" />
+    <None Include="OW.py" />
+    <None Include="RR.py" />
+    <None Include="SWR.py" />
+    <None Include="tableAW.py" />
+    <None Include="tableET.py" />
+    <None Include="tableRainWBA.py" />
     <None Include="functions.py" />
     <None Include="lookup.py" />
     <None Include="constants.py" />
-    <None Include="D:\cvwrsm\Rice_hydrology\Rice_Hydrology\tableRain.py" />
+    <None Include="tableRain.py" />
   </ItemGroup>
 </Project>
