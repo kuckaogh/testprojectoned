@@ -78,16 +78,16 @@
             <Keywords name="Folder+">{</Keywords>
             <Keywords name="Folder-">}</Keywords>
             <Keywords name="Operators">[ ] +</Keywords>
-            <Keywords name="Comment"> 1/* 2*/ 0!</Keywords>
+            <Keywords name="Comment">1/* 2*/ 0!</Keywords>
             <Keywords name="Words1">sequence model order include value</Keywords>
             <Keywords name="Words2">goal</Keywords>
             <Keywords name="Words3">define</Keywords>
-            <Keywords name="Words4">std kind timeseries units</Keywords>
+            <Keywords name="Words4">std kind timeseries units select from where given use</Keywords>
         </KeywordLists>
         <Styles>
             <WordsStyle name="DEFAULT" styleID="11" fgColor="C0C0C0" bgColor="000000" fontName="" fontStyle="0" />
-            <WordsStyle name="FOLDEROPEN" styleID="12" fgColor="FF8040" bgColor="000000" fontName="" fontStyle="0" />
-            <WordsStyle name="FOLDERCLOSE" styleID="13" fgColor="FF8040" bgColor="000000" fontName="" fontStyle="0" />
+            <WordsStyle name="FOLDEROPEN" styleID="12" fgColor="FF8000" bgColor="000000" fontName="" fontStyle="0" />
+            <WordsStyle name="FOLDERCLOSE" styleID="13" fgColor="FF8000" bgColor="000000" fontName="" fontStyle="0" />
             <WordsStyle name="KEYWORD1" styleID="5" fgColor="8080C0" bgColor="000000" fontName="" fontStyle="0" />
             <WordsStyle name="KEYWORD2" styleID="6" fgColor="0080FF" bgColor="000000" fontName="" fontStyle="0" />
             <WordsStyle name="KEYWORD3" styleID="7" fgColor="AB5858" bgColor="000000" fontName="" fontStyle="0" />
