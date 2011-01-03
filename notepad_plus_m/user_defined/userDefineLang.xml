@@ -79,10 +79,10 @@
             <Keywords name="Folder-">}</Keywords>
             <Keywords name="Operators">[ ] +</Keywords>
             <Keywords name="Comment">1/* 2*/ 0!</Keywords>
-            <Keywords name="Words1">sequence model order include value</Keywords>
+            <Keywords name="Words1">sequence model order value case condition</Keywords>
             <Keywords name="Words2">goal</Keywords>
             <Keywords name="Words3">define</Keywords>
-            <Keywords name="Words4">std kind timeseries units select from where given use</Keywords>
+            <Keywords name="Words4">std kind timeseries units select from where given use include .and. .or.</Keywords>
         </KeywordLists>
         <Styles>
             <WordsStyle name="DEFAULT" styleID="11" fgColor="C0C0C0" bgColor="000000" fontName="" fontStyle="0" />
